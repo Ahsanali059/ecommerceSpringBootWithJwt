@@ -12,8 +12,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "roles")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Role
-{
+public class Role {
+
     @Id
     private Long roleId;
     private String roleName;
