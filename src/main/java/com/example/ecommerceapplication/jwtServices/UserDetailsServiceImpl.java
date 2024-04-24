@@ -1,6 +1,8 @@
 package com.example.ecommerceapplication.jwtServices;
 
+import com.example.ecommerceapplication.config.UserInfoConfig;
 import com.example.ecommerceapplication.entities.User;
+import com.example.ecommerceapplication.exceptions.ResourceNotFoundException;
 import com.example.ecommerceapplication.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         Optional<User> user = userRepository.findByEmail(username);
-        return user.map()
+        return user.map(UserInfoConfig::new).orElseThrow(()->new ResourceNotFoundException("User", "email", username));
 
     }
 }
