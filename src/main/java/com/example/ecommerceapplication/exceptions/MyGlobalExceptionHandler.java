@@ -86,5 +86,5 @@ public class MyGlobalExceptionHandler {
         return new ResponseEntity<APIResponse>(res, HttpStatus.BAD_REQUEST);
     }
 
-    
+
 }
