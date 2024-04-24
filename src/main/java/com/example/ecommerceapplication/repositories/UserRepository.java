@@ -27,6 +27,6 @@ If no user with the specified email address is found, the method returns an empt
 Using Optional in method return types has several advantages:
 
 1-Null-Safety: It eliminates the need to handle null values explicitly in your code. Instead of returning null when no result is found, the method returns an Optional object, which forces the caller to handle the possibility of an empty result.
-2-AvoidingNullPointer Exceptions 
+2-AvoidingNullPointer Exceptions
 
  */
