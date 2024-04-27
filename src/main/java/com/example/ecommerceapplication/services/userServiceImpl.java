@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import com.example.ecommerceapplication.services.CartService;
 
 @Service
 public class userServiceImpl
@@ -20,14 +21,11 @@ public class userServiceImpl
     @Autowired
     private AddressRepo addressRepo;
 
-    @Autowired
-    private CartService cartService;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private ModelMapper modelMapper;
+
     /*
      modal mapper is java library that is used to map object from one place to another
 

@@ -4,6 +4,7 @@ import com.example.ecommerceapplication.dto.CartDTO;
 
 import java.util.List;
 
+
 public interface CartService {
 
     CartDTO addProductToCart(Long cartId, Long productId, Integer quantity);
