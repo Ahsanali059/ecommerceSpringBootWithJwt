@@ -231,7 +231,6 @@ public class userServiceImpl implements UserService
 
     /*
      modal mapper is java library that is used to map object from one place to another
-
      */
 
 
