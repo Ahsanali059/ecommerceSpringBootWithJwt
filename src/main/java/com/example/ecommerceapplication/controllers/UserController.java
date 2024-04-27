@@ -1,16 +1,15 @@
 package com.example.ecommerceapplication.controllers;
 
 import com.example.ecommerceapplication.constants.AppConstants;
+import com.example.ecommerceapplication.dto.UserDTO;
 import com.example.ecommerceapplication.dto.UserResponse;
+import com.example.ecommerceapplication.entities.User;
 import com.example.ecommerceapplication.services.UserService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -30,6 +29,28 @@ public class UserController {
       return new ResponseEntity<UserResponse>(new UserResponse(), HttpStatus.FOUND);
 
     }
+
+    @GetMapping("/public/users/{userId}")
+    public ResponseEntity<UserDTO> getUser(@PathVariable Long userId)
+    {
+        UserDTO user = userService.getUserById();
+        return new ResponseEntity<UserDTO>(user, HttpStatus.FOUND);
+    }
+
+    @PutMapping("/public/users/{userId}")
+    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO, @PathVariable Long userId) {
+        UserDTO updatedUser = userService.updateUser(userId, userDTO);
+
+        return new ResponseEntity<UserDTO>(updatedUser, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/admin/users/{userId}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long userId) {
+        String status = userService.deleteUser(userId);
+
+        return new ResponseEntity<String>(status, HttpStatus.OK);
+    }
+
 
 
 }
