@@ -18,7 +18,8 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api")
 @SecurityRequirement(name = "E-Commerce Application")
-public class ProductController {
+public class ProductController
+{
 
     @Autowired
     private ProductService productService;
